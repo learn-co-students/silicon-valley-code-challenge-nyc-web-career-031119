@@ -41,14 +41,8 @@ class VentureCapitalist
   def biggest_investment
     funding_rounds.sort_by{|round| round.investment}[-1].investment.to_f
   end
-  
-  def rounds_by_domain(domain)
-    funding_rounds.select do
-      |round| round.domain == domain
-    end
-  end
 
-  def invested
-    funding_rounds.map { |round| round.investment  }.reduce(:+).to_f
+  def invested(domain)
+      funding_rounds.select{|round| round.startup.domain == domain}.map{|round| round.investment}.reduce(:+).to_f
   end
 end
