@@ -17,25 +17,19 @@ class VentureCapitalist
   end
 
   def self.tres_commas_club
-    all.select do
-      |vc| vc.total_worth > 1000000000
-    end
+    all.select {|vc| vc.total_worth > 1*10**9}
   end
 
   def offer_contract(startup, type, investment)
     FundingRound.new(startup, self, type, investment)
-    @portfolio << startup
-    self.total_invested += investmnet
   end
 
   def funding_rounds
-    FundingRound.all.select do
-      |round| round.venture_capitalist == self
-    end
+    FundingRound.all.select{|round| round.venture_capitalist == self}
   end
 
   def portfolio
-    funding_rounds.map { |rounds| rounds.startup  }.uniq
+    funding_rounds.map{|round| round.startup}.uniq
   end
 
   def biggest_investment

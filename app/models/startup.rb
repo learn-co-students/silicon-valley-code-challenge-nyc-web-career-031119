@@ -24,9 +24,7 @@ class Startup
   end
 
   def self.find_by_founder(founder)
-    all.select do
-      |startup| startup.founder == founder
-    end
+    all.select{|startup| startup.founder == founder}
   end
 
   def self.domains
@@ -48,16 +46,14 @@ class Startup
   end
 
   def total_funds
-    rounds.map{ |round| round.investment }.reduce(:+).to_f
+    rounds.map{|round| round.investment}.reduce(:+).to_f
   end
 
   def investors
-    rounds.map{ |round| round.venture_capitalist }.uniq
+    rounds.map{|round| round.venture_capitalist}.uniq
   end
 
   def big_investors
-    investors.select do
-      |vc| vc.total_worth > 1000000000
-    end
+    investors.select {|vc| vc.total_worth > 1*10**9}
   end
 end
