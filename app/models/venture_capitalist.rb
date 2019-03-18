@@ -3,8 +3,6 @@ class VentureCapitalist
   attr_accessor :total_worth
 
   @@all = []
-  @portfolio = []
-  @total_invested = 0
 
   def initialize(name, total_worth)
     @name = name
