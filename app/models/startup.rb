@@ -54,6 +54,6 @@ class Startup
   end
 
   def big_investors
-    investors.select {|vc| vc.total_worth > 1*10**9}
+    investors.select {|vc| vc.total_worth > 10**9}
   end
 end

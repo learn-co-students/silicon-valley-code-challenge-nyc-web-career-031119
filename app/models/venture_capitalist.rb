@@ -15,7 +15,7 @@ class VentureCapitalist
   end
 
   def self.tres_commas_club
-    all.select {|vc| vc.total_worth > 1*10**9}
+    all.select {|vc| vc.total_worth > 10**9}
   end
 
   def offer_contract(startup, type, investment)
