@@ -57,7 +57,7 @@ We've provided you with a console that you can use to test your code. To enter a
 - `VentureCapitalist.tres_commas_club`
   - returns an array of all venture capitalists in the Trés Commas club (they have more then 1,000,000,000 `total_worth`)
 
----
+--- 
 
 #### Build out the following methods on the `FundingRound` class
 
